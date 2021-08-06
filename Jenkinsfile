@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Cloning our Git') { 
             steps { 
-                git '' 
+                git 'https://github.com/Omer930/Jenkins-Test.git' 
             }
         } 
         
