@@ -20,12 +20,6 @@ pipeline {
                 git 'https://github.com/Omer930/Jenkins-Test.git' 
             }
         } 
-        stage('Building our image') { 
-            steps { 
-                script { 
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
-                }
-            } 
-        }
+  
     }
 }
