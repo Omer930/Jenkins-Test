@@ -1,13 +1,6 @@
 pipeline {
     agent any
-    
-    stages {
-        stage('Image Build') {
-            agent { dockerfile true }
-            steps {
-                sh 'node --version'
-            }
-        }
+    stages{
         stage('Host') {
             steps {
                 nodejs('NodeJS'){
@@ -18,11 +11,10 @@ pipeline {
         }
         stage('Cloning our Git') { 
             steps { 
-                git 'https://github.com/Omer930/Jenkins-Test.git' 
+                git 'https://github.com/Annasali2/jenkins-test.git' 
             }
-        } 
+        
         
     }
 }
-    
 
