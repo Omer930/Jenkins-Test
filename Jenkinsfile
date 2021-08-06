@@ -1,6 +1,12 @@
 pipeline {
     agent any
-    stages{
+    stages {
+        stage('Image Build') {
+            agent { dockerfile true }
+            steps {
+                sh 'node --version'
+            }
+        }
         stage('Host') {
             steps {
                 nodejs('NodeJS'){
@@ -11,10 +17,15 @@ pipeline {
         }
         stage('Cloning our Git') { 
             steps { 
-                git 'https://github.com/Annasali2/jenkins-test.git' 
+                git 'https://github.com/Omer930/Jenkins-Test.git' 
             }
-        
-        
+        } 
+        stage('Building our image') { 
+            steps { 
+                script { 
+                    dockerImage = docker.build registry + ":$BUILD_NUMBER" 
+                }
+            } 
+        }
     }
 }
-
