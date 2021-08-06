@@ -8,7 +8,7 @@ pipeline {
                 sh 'node --version'
             }
         }
-        stage('Build') {
+        stage('Host') {
             steps {
                 nodejs('NodeJS'){
                     sh 'npm install'
